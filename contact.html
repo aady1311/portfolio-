@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/scss/styles.scss">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Aditya</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="./about.html" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="./skills.html" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="./work.html" class="nav__link">Work</a></li>
+                    <li class="nav__item"><a href="./certificate.html" class="nav__link">Certificate</a></li>
+                    <li class="nav__item"><a href="./contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="contact section" id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <!-- <div class="contact__container bd-grid">
+            <form action="" class="contact__form">
+                <input type="text" placeholder="Name" class="contact__input">
+                <input type="mail" placeholder="Email" class="contact__input">
+                <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                <input type="button" value="Submit" class="contact__button button">
+            </form>
+        </div> -->
+
+        <div class="contact__container bd-grid">
+            <form action="https://formspree.io/f/xayrrald" method="POST" class="contact__form">
+                <input type="text" name="username" placeholder="Name" class="contact__input" required
+                    autocomplete="off">
+                <input type="email" name="email" id="emailInput" placeholder="Email" class="contact__input" required
+                    autocomplete="off">
+
+                <textarea name="Message" cols="0" rows="10" placeholder="Your message..." required
+                    class="contact__input"></textarea>
+                <input type="submit" value="Submit" class="contact__button button">
+            </form>
+        </div>
+
+    </section>
+
+     <!--===== FOOTER =====-->
+     <footer class="footer">
+        <p class="footer__title">Aditya</p>
+        <div class="footer__social">
+            <a href="https://www.linkedin.com/in/aditya1311/" target="_blank" class="footer__icon"><i
+                    class='bx bxl-linkedin'></i></a>
+            <a href="https://www.instagram.com/iamadditya/" target="_blank" class="footer__icon"><i
+                    class='bx bxl-instagram'></i></a>
+            <a href="https://github.com/iamaaadddity7977" target="_blank" class="footer__icon"><i
+                    class='bx bxl-github'></i></a>
+        </div>
+        <!-- <p class="footer__copy">&#169;</p> -->
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/btn.js"></script>
+    <script src="./assets/js/email.js"></script>
+    
+</body>
+</html>
