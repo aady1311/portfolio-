@@ -7,7 +7,7 @@
   /*===== Colores =====*/
   /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
   /* HSL color mode */
-  --hue-color: 224;
+  --hue-color: 260;
   --first-color: hsl(var(--hue-color), 89%, 60%);
   --second-color: hsl(var(--hue-color), 56%, 12%);
   /*===== Fuente y tipografia =====*/
@@ -90,7 +90,7 @@ body {
     top: 0.5rem;
     width: 14px;
     height: 14px;
-    background: #047beb; /* Accent color */
+    background: var(--first-color); /* Purple theme color */
     border-radius: 50%;
     z-index: 1;
   }
@@ -103,7 +103,7 @@ body {
     top: 7px;    /* half the dot’s height if the dot is 14px tall */
     width: 2px;
     height: 100%;
-    background: #047beb;
+    background: var(--first-color);
     z-index: 0;
   }
   
@@ -115,7 +115,7 @@ body {
     top: 7px;
     width: 2px;
     height: 100%;
-    background: #047beb;
+    background: var(--first-color);
     z-index: 0;
   }
   
@@ -141,7 +141,7 @@ body {
   /* Card hover "lift" effect */
   .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(4, 123, 235, 0.2); /* subtle accent glow */
+    box-shadow: 0 12px 24px hsla(var(--hue-color), 89%, 60%, 0.2); /* subtle purple glow */
   }
   
   /* Horizontal accent line slides in at the bottom on hover */
@@ -152,7 +152,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: #047beb;          /* accent color */
+    background: var(--first-color);          /* purple theme color */
     transform: translateX(-100%); /* hidden off the left side initially */
     transition: transform 0.3s ease;
   }
@@ -203,7 +203,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    color: #047beb; 
+    color: var(--first-color); 
     font-size: 1.2rem;
     line-height: 1; /* keep bullet centered */
   }
@@ -218,14 +218,14 @@ body {
   /* Link style */
   .project-link {
     font-size: 14px;
-    color: #047beb;
+    color: var(--first-color);
     text-decoration: underline;
     font-weight: 500;
     transition: color 0.2s ease;
   }
   .project-link:hover {
     text-decoration: none;
-    color: #005bb5; /* darken accent on hover */
+    color: hsl(var(--hue-color), 89%, 45%); /* darken purple on hover */
   }
 /*************************************
 /*************************************
@@ -277,7 +277,7 @@ body {
 /* Hover animation: card lifts + subtle glow */
 .certificate-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(4,123,235,0.2); /* glow in accent color */
+  box-shadow: 0 12px 24px hsla(var(--hue-color), 89%, 60%, 0.2); /* glow in purple theme color */
 }
 
 /* Certificate image */
@@ -528,9 +528,15 @@ img {
   position: relative;
   row-gap: 5rem;
   padding: 4rem 0 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
 }
 .home__data {
-  align-self: center;
+  align-self: start;
+  margin-top: -2rem;
+  z-index: 2;
 }
 .home__title {
   font-size: var(--big-font-size);
@@ -538,6 +544,20 @@ img {
 }
 .home__title-color {
   color: var(--first-color);
+}
+
+.role-animation {
+  color: var(--first-color);
+}
+
+.cursor {
+  color: var(--first-color);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 .home__social {
   display: flex;
@@ -553,16 +573,32 @@ img {
   color: var(--first-color);
 }
 .home__img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  justify-self: end;
+  align-self: center;
   width: 260px;
+  z-index: 1;
 }
 .home__blob {
   fill: var(--first-color);
 }
 .home__blob-img {
   width: 360px;
+  opacity: 1;
+  filter: invert(1) brightness(0.8);
+  animation: float 3s ease-in-out infinite;
+}
+
+body.dark-mode .home__blob-img {
+  filter: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /*BUTTONS*/
