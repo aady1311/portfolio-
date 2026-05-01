@@ -86,8 +86,8 @@ body {
   /* Dot on the left side */
   .timeline-dot {
     position: absolute;
-    left: 20px;
-    top: 0.5rem;
+    left: -76px;
+    top: 0.4rem;
     width: 14px;
     height: 14px;
     background: #047beb; /* Accent color */
@@ -99,7 +99,7 @@ body {
   .timeline-item::before {
     content: "";
     position: absolute;
-    left: 25px;  /* aligns with the dot’s center (20px + half the dot’s width) */
+    left: -70px;  /* aligns with the dot’s center (20px + half the dot’s width) */
     top: 7px;    /* half the dot’s height if the dot is 14px tall */
     width: 2px;
     height: 100%;
@@ -111,7 +111,7 @@ body {
   .timeline-item::after {
     content: "";
     position: absolute;
-    right: 25px; /* mirror offset for the right side */
+    right: -68px; /* mirror offset for the right side */
     top: 7px;
     width: 2px;
     height: 100%;
@@ -301,17 +301,17 @@ body {
   font-weight: 600;
 }
 
-.certificate-subtitle {
+/* .certificate-subtitle {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
   color: #555;
-}
+} */
 
-.certificate-date {
+/* .certificate-date {
   display: inline-block;
   font-size: 0.85rem;
   color: #777;
-}
+} */
 
 /*************************************
  * Responsive Adjustments
@@ -327,23 +327,23 @@ body {
 
 
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   /* Reduce horizontal spacing so cards & lines fit on small screens */
   .timeline {
     margin-left: 1rem; /* optional: reduce left margin */
   }
   .timeline-item::before {
-    left: 15px; /* shift left line closer */
+    left: -25px; /* shift left line closer */
   }
   .timeline-item::after {
     right: 15px; /* shift right line closer */
   }
   .timeline-dot {
-    left: 10px; /* dot also moves in */
+    left: -32px; /* dot also moves in */
   }
   .project-card {
     margin: 0 20px;  /* narrower margins so card fits */
-    padding: 16px;   /* slightly less padding on mobile */
+    padding: 20px;   /* slightly less padding on mobile */
   }
 
   /* Decrease font size to avoid overflow */
@@ -565,6 +565,11 @@ img {
   width: 360px;
 }
 
+@media screen and (max-width: 768px) {
+  .home__blob {
+    transform: translateY(-40px);
+  }
+}
 /*BUTTONS*/
 .button {
   display: inline-block;
@@ -596,6 +601,109 @@ img {
 }
 
 /* ===== SKILLS =====*/
+.skills.section {
+  background: #fff; /* 👈 white hi rahega */
+  padding: 4rem 0;
+}
+
+/* GRID */
+.skills__container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* CARD */
+.skills__card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+/* GRADIENT BORDER */
+.skills__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(45deg, #4070f4, #8a2be2);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* HOVER */
+.skills__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(64, 112, 244, 0.25);
+}
+
+/* TITLE */
+.skills__card h3 {
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+/* TAGS */
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* TAG */
+.skills__tags span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #4070f4;
+  font-size: 0.8rem;
+  color: #4070f4;
+  transition: 0.3s;
+}
+
+/* TAG HOVER */
+.skills__tags span:hover {
+  background: #4070f4;
+  color: #fff;
+}
+
+/* ICON */
+.skills__tags i {
+  font-size: 1rem;
+}
+
+/* 📱 MOBILE */
+@media screen and (max-width: 768px) {
+  .skills.section {
+    padding: 3rem 1.2rem; /* 👈 outer spacing */
+  }
+
+  .skills__container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .skills__card {
+    padding: 1.4rem;
+    border-radius: 14px;
+  }
+}
+
+
+/* 
 .skills__container {
   row-gap: 2rem;
   text-align: center;
@@ -654,7 +762,7 @@ img {
 .skills__img {
   border-radius: 0.5rem;
 }
-
+ */
 
 
 /* ===== CONTACT =====*/
@@ -809,4 +917,56 @@ img {
   .home__img {
     width: 450px;
   }
+}
+
+
+
+
+/* ===== EXPERIENCE =====*/
+
+
+/* ===== FOOTER ===== */
+
+/* 🔥 NAVBAR IN FOOTER */
+.footer__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;   /* 🔥 important for mobile */
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.footer__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+.footer__nav a:hover {
+  color: #047beb;
+}
+
+/* Social Icons */
+.footer__social {
+  margin-bottom: 20px;
+}
+
+.footer__social a {
+  font-size: 20px;
+  margin: 0 10px;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+.footer__social a:hover {
+  color: #047beb;
+}
+
+/* Copyright */
+.footer__copy {
+  font-size: 13px;
+  color: #faf9f9;
 }
